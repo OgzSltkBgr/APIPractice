@@ -1,9 +1,8 @@
 package pojos;
-
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AccountPojos {
+public class Account {
     private Integer id;
     private String description;
     private Integer balance;
@@ -14,7 +13,7 @@ public class AccountPojos {
     private String employee;
     private String accountlogs;
 
-    public AccountPojos(Integer id, String description, Integer balance, String accountType, String accountStatusType, String createDate, String closedDate, String employee, String accountlogs) {
+    public Account(Integer id, String description, Integer balance, String accountType, String accountStatusType, String createDate, String closedDate, String employee, String accountlogs) {
         this.id = id;
         this.description = description;
         this.balance = balance;
@@ -26,7 +25,7 @@ public class AccountPojos {
         this.accountlogs = accountlogs;
     }
 
-    public AccountPojos() {
+    public Account() {
     }
 
     public Integer getId() {

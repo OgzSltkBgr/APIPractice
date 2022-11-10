@@ -1,11 +1,17 @@
 package pojos;
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-public class CountryPojos {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Country {
+        /*
+        "country": {
+        "id": 3,
+        "name": "USA",
+        "states": null
+    }
+     */
 
-    @Getter
-    @Setter
     private int id;
     private String name;
     private String states;
@@ -34,28 +40,21 @@ public class CountryPojos {
         this.states = states;
     }
 
-    public CountryPojos(int id, String name, String states) {
+    public Country() {
+    }
+
+    public Country(int id, String name, String states) {
         this.id = id;
         this.name = name;
         this.states = states;
     }
 
-    public CountryPojos() {
-    }
-
     @Override
     public String toString() {
-        return "CountryPojos{" +
+        return "Country{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", states='" + states + '\'' +
                 '}';
     }
 }
-/*
-“country”: {
-            “id”: 3,
-            “name”: “USA”,
-            “states”: null
-        }
- */

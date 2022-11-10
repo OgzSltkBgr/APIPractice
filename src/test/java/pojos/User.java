@@ -1,9 +1,23 @@
 package pojos;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-public class UserPojos {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class User {
+
+    /*
+        "user": {
+        "id": 110016,
+        "login": "leopoldo.reinger",
+        "firstName": "Jasmine",
+        "lastName": "Stehr",
+        "email": "marni.zboncak@yahoo.com",
+        "activated": true,
+        "langKey": "en",
+        "imageUrl": null,
+        "resetDate": null
+    }
+     */
 
     private int id;
     private String login;
@@ -15,27 +29,12 @@ public class UserPojos {
     private String imageUrl;
     private String resetDate;
 
-    public UserPojos(int id,String login, String firstName, String lastName, String email, boolean activated, String langKey, String imageUrl, String resetDate) {
-        this.login = login;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.activated = activated;
-        this.langKey = langKey;
-        this.imageUrl = imageUrl;
-        this.resetDate = resetDate;
-        this.id = id;
-    }
-
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public UserPojos() {
     }
 
     public String getLogin() {
@@ -102,9 +101,24 @@ public class UserPojos {
         this.resetDate = resetDate;
     }
 
+    public User() {
+    }
+
+    public User(int id, String login, String firstName, String lastName, String email, boolean activated, String langKey, String imageUrl, String resetDate) {
+        this.id = id;
+        this.login = login;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.activated = activated;
+        this.langKey = langKey;
+        this.imageUrl = imageUrl;
+        this.resetDate = resetDate;
+    }
+
     @Override
     public String toString() {
-        return "UserPojos{" +
+        return "User{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
                 ", firstName='" + firstName + '\'' +
@@ -117,17 +131,3 @@ public class UserPojos {
                 '}';
     }
 }
-/*
-    “user”: {
-        “id”: 110016,
-        “login”: “leopoldo.reinger”,
-        “firstName”: “Jasmine”,
-        “lastName”: “Stehr”,
-        “email”: “marni.zboncak@yahoo.com”,
-        “activated”: true,
-        “langKey”: “en”,
-        “imageUrl”: null,
-        “resetDate”: null
-    }
-}
- */
